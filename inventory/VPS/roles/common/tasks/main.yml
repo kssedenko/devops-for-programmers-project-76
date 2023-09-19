@@ -1,0 +1,19 @@
+---
+- hosts:  all
+  tasks:
+    - name: ping
+      ping:
+
+- hosts: all
+  become: true
+  gather_facts: true
+  pre_tasks:
+   - name: Install pip
+     apt:
+       pkg:
+         - python3-pip
+  
+   - name: Install Docker for Python
+     pip:
+       name:
+         - docker
